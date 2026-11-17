@@ -1,22 +1,21 @@
 # PoE Economy Dashboard — Windows releases
 
-Öffentliches Binärrepository für die privat genutzte Windows-x64-Anwendung. Der private Quellcode wird hier nicht veröffentlicht.
+## Installation (Test 0.2.2)
 
-## Installation
+[Windows-Installer herunterladen](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/download/v0.2.2/PoEEconomy-0.2.2-Setup.exe)
 
-Noch kein dauerhaft nutzbarer Owner-Installer veröffentlicht. Kurzlebige CI-Testinstaller sind keine Betriebsfreigabe und werden hier nicht als solche bereitgestellt.
+Die EXE ausführen und anschließend PoE Economy Dashboard über das Startmenü öffnen. Python und Node müssen nicht installiert werden. Der Installer installiert pro Benutzer.
 
-Ein freigegebener Release enthält die Setup.exe, release-notes.md und ein Ed25519-signiertes Prüfsummenverzeichnis. Vor der Erstinstallation ist der SHA-256 des Installers unabhängig zu prüfen. Python, Node.js oder Entwicklerwerkzeuge werden für den Betrieb nicht benötigt.
+Für weitere Testupdates in der Anwendung den **Testkanal auswählen und bestätigen**. Die Anwendung startet standardmäßig mit Stable; der Stablekanal ist bis zum Abschluss der Windows-11-Abnahme noch nicht veröffentlicht.
 
-## Dauerhafter Updatekanal
+Der Installer ist nicht mit einem Windows-Code-Signing-Zertifikat signiert. Updates werden mit dem eingebauten Eigentümer-Vertrauensanker über Ed25519-Signaturen und SHA256 geprüft.
 
-Geplante Kanaldateien auf GitHub Releases:
+SHA256 des Installers:
 
-- `channel-stable/signed-manifest.json`: ausdrücklich freigegebene Versionen; Standardkanal der Anwendung.
-- `channel-test/signed-manifest.json`: ausdrücklich bestätigte Testversionen.
-- `roots/<version>.json`: autorisierte, fortlaufend versionierte öffentliche Vertrauensmetadaten.
-- `v<version>/payload.zip`: unveränderliche vollständige Updatepakete neben dem passenden Installer.
+```text
+14169958624162319344da052983296fb830b0c8ad9f795081cffb0252255001
+```
 
-Die Kanaldateien sind erst nach Einrichtung des dauerhaften Produktionsvertrauens und Veröffentlichung gültiger signierter Metadaten nutzbar. Es werden keine Platzhaltermanifeste bereitgestellt.
+[Release-Dateien, signierte Prüfsummen und SBOMs](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/tag/v0.2.2)
 
-Updates prüfen Ed25519-Autorisierung, SHA-256, Größen-/Versions-/Schemakompatibilität und HTTPS. Unsigned Windows-Programme im Owner-Modus bedeuten keine unsignierten Updates. Private Signierschlüssel oder persönliche Zugriffstokens gehören weder in dieses Repository noch in Installationspakete.
+Dieses öffentliche Repository enthält ausschließlich Binärveröffentlichungen und öffentliche Release-Metadaten. Der Quellcode bleibt im privaten Entwicklungsrepository.
