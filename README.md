@@ -1,3 +1,15 @@
+# Test 1.1.0 verfügbar — Stable bleibt 1.0.0
+
+Bestehende Anwendung: **Test → Nach Updates suchen → 1.1.0 installieren**. Keine Neuinstallation erforderlich. [Test-Release und Installer](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/tag/v1.1.0).
+
+Englische PoE-Begriffe, sortierbare Tabellenspalten und gespeicherte Reference Currency (Chaos, Divine, Exalted, Annulment, Ancient, Mirror). Frische Kurse derselben League; fehlende Kurse bleiben nicht verfügbar. Originalpreise, historische Kurse und Buchungen bleiben erhalten. Kein automatischer Flip-Finder oder Live-Listing-Feed.
+
+310 Python-Tests je Linux/Windows, zehn Frontend-Tests, Browser-/native Prüfungen und echter öffentlicher 1.0→1.1-Updateweg einschließlich Daten/Neustart/Currency-Auswahl/Backup-Restore bestanden. [Nachweise](https://github.com/Kaikulon-ThePirate/poe-economy-dashboard/tree/main/docs/evidence/gui11). Installer-SHA256: `afc9cf0a761d02b572555081265288ceafe8ddc183e750096a747a67dc61c1ce` (54351686 Bytes). Private Owner-Verteilung mit signierten Ed25519-Metadaten; Installer weiterhin ohne Authenticode.
+
+Stable und sein Installer bleiben unverändert auf 1.0.0.
+
+---
+
 # PoE Economy Dashboard 1.0.0 — Stable
 
 [Windows-x64-Installer herunterladen](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/download/v1.0.0/PoEEconomy-1.0.0-Setup.exe) · [Releasehinweise](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/tag/v1.0.0)
