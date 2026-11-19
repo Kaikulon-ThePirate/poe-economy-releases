@@ -1,3 +1,19 @@
+# PoE Economy Dashboard 1.0.0 — Stable
+
+[Windows-x64-Installer herunterladen](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/download/v1.0.0/PoEEconomy-1.0.0-Setup.exe) · [Releasehinweise](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/tag/v1.0.0)
+
+Bestehende Anwendung: **Stable → Nach Updates suchen → 1.0.0 installieren**. Auch im Testkanal verfügbar. Keine Neuinstallation und keine Python-/Node-Installation erforderlich. Erneutes Öffnen über die Startmenü-Verknüpfung „PoE Economy Dashboard“.
+
+Enthält Marktansicht/Preisverlauf, offizielle Trade-Websuche, manuelle Angebote, Watchlists, Handelsjournal, Crafting-Kosten und Backup/Wiederherstellung. Keine automatische Echtzeit-Listingquelle. Schema 7/Konfiguration 2 bleiben unverändert.
+
+Installer-SHA256: `4c30a62b79aaf52d08053bcc73d015df27ad0fefc400cc931063b4a2a6325bdb` (54335503 Bytes). Produktions-Ed25519-Metadaten und signierte Prüfsummen prüfen die Dateien. Der private Owner-Installer ist nicht Authenticode-signiert; Windows kann einen Hinweis zum unbekannten Herausgeber anzeigen.
+
+CI und echte öffentliche 0.9.1→1.0-Updates in Test und Stable bestanden, einschließlich vorhandener Angebote/Journal/Rezepte, Neustart und Backup-Wiederherstellung. Die Stable-Promotion hat keine Binärdateien neu gebaut oder ersetzt. [Nachweise im Quellrepository](https://github.com/Kaikulon-ThePirate/poe-economy-dashboard/tree/main/docs/evidence/v1). Private Owner-Freigabe vom 19.11.2026; automatisierte native Nachweise auf Windows Server 2025, keine vollständige maschinelle Win11-Zertifizierung.
+
+Frühere Hinweise unten sind historisch.
+
+---
+
 # PoE Economy Dashboard – Windows-Testversion 0.9.1
 
 ## Bereits installiert: direkt aktualisieren
