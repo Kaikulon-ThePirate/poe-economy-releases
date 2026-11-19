@@ -1,37 +1,35 @@
-# PoE Economy Dashboard – Windows-Testversion 0.7.0
+# PoE Economy Dashboard – Windows-Testversion 0.8.0
 
-## Bereits installiert: in der Anwendung aktualisieren
+## Bereits installiert: direkt aktualisieren
 
-1. Updatekanal **Test** auswählen und bestätigen.
-2. **Nach Updates suchen** anklicken; Version **0.7.0** installieren.
-3. Sicherung, Migration und Neustart erfolgen automatisch. Keine Neuinstallation nötig.
+In der Anwendung **Test → Nach Updates suchen → 0.8.0 installieren**. Sicherung und Neustart erfolgen automatisch. Keine Neuinstallation nötig.
 
-Der echte öffentliche Updateweg **0.6.0 → 0.7.0** wurde mit dem unveränderten veröffentlichten 0.6.0-Installer unter einem Windows-Standardbenutzer geprüft. Migration DB5→DB6, alte Marktdaten/Historie/Filter/Gewichte/Notizen und schon im alten Programm angelegte Watchlist/Regeln/Hinweise bleiben erhalten. Danach tatsächliche Journal- und Crafting-API benutzt, Anfragen wiederholt und Anwendung neu gestartet: keine Doppelbuchungen, FIFO-Bestand und Rezeptversion erhalten. Windows-Server-Nachweis, keine vollständige frische Windows-11-/Stable-Abnahme.
+Neu: **Sicherung und Wiederherstellung** mit vollständiger Einzelprüfung, portablem Export/Import und bestätigtem Restore. Beschädigte Metadaten blockieren die Anwendung nicht mehr. **Diagnosebericht herunterladen** exportiert nur technische Zustandsdaten, keine Buchungen, Notizen, Pfade oder Sitzungskennungen. Erneut über das Startmenü öffnen verwendet das bereits laufende Backend.
+
+Der echte öffentliche Updateweg **0.7.0 → 0.8.0** wurde mit dem unveränderten Originalinstaller und eingebautem Produktionsanker unter einem Windows-Standardbenutzer geprüft. Vorherige Journalbuchungen, Rezeptversionen, Marktdaten, Einstellungen, Watchlist und Hinweise bleiben erhalten. Zusätzlich: zweiter Shortcut ohne zweiten Backendprozess, Sicherungsprüfung/Export/Import und bestätigter Restore über die Oberfläche; Notizen, Journal und Rezepte anschließend verglichen. DB6/Config2 unverändert.
 
 ## Neuinstallation
 
-[Windows-Installer 0.7.0 herunterladen](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/download/v0.7.0/PoEEconomy-0.7.0-Setup.exe)
+[Windows-Installer 0.8.0 herunterladen](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/download/v0.8.0/PoEEconomy-0.8.0-Setup.exe)
 
-EXE ausführen und PoE Economy Dashboard über das Startmenü öffnen. Installation pro Benutzer; Python oder Node werden nicht benötigt. Für Testupdates den Testkanal in der Anwendung bestätigen. Stable ist noch nicht freigegeben.
+EXE ausführen und PoE Economy Dashboard über das Startmenü öffnen. Installation pro Benutzer; Python oder Node werden nicht benötigt. Für Updates den Testkanal in der Anwendung bestätigen.
 
-SHA256 des Installers:
+Installer-SHA256:
 
 ```text
-e20772f9576c16f2cac77bb8592a42b9769c0af08273ca133fceec4d3dc237a1
+475ea095c4390af31ec2a0c94daa955f4502d7db8585561557daaeaea4ad93ed
 ```
 
-[Signierte Prüfsummen, SBOMs und Releasehinweise](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/tag/v0.7.0)
+[Signierte Prüfsummen, SBOMs und Hinweise](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/tag/v0.8.0)
 
-## Neu in M5
+## Enthaltene Funktionen
 
-Manuelles Handelsjournal: Käufe, Verkäufe und Teilverkäufe, Gebühren, FIFO-Bestand/Kostenbasis, realisiertes Ergebnis/ROI, historische Währungsumrechnung mit Quelle und Zeitpunkt, sichere Stornos und CSV-Export. Im Markt **Journalentwurf** wählen oder Liga/Variante selbst eintragen. Vor dem Buchen tatsächliche Ausführung und Werte prüfen. Aktuelle unrealisierte Referenzwerte gibt es nur bei passender Marktverknüpfung und frischen Chaospreisen; sonst bleibt die Bewertung unbekannt.
+Markt-Explorer mit poe.ninja-Referenzpreisen, exakten Variantenfiltern, Verlauf und erklärbaren Marktsignalen. Offizielle Trade-Suche öffnet die Website; keine In-App-Echtzeitangebote. Watchlists mit Regeln, lokaler Hinweiszentrale und optionalen Browsermeldungen bei laufender Anwendung.
 
-Crafting-Kostenplaner: Materialkosten und mögliche Ergebniswerte mit eigenen, sich ausschließenden Wahrscheinlichkeiten eingeben. Die Summe muss exakt 1 sein. Kosten, erwartetes Ergebnis/ROI und mögliche Grenzen werden berechnet. Annahmen und Rezeptversionen werden unverändert gespeichert. **Crafting-Kosten übernehmen** kopiert nur eine Marktreferenz in den Entwurf. Keine aus Spieldaten abgeleiteten Erfolgsaussichten, Handelsausführung oder Gewinnzusage.
+Manuelles Handelsjournal mit Teilverkäufen, FIFO, Gebühren, historischen Umrechnungen, ROI und CSV. Crafting-Kostenplaner mit eigenen Wahrscheinlichkeiten und unveränderten Rezeptversionen. Marktwerte lassen sich als Entwürfe übernehmen; tatsächliche Ausführung und eigene Annahmen vor dem Speichern prüfen. Keine Handelsausführung oder aus Spieldaten abgeleiteten Erfolgsaussichten.
 
-Grenzen: 5.000 Buchungen einschließlich Stornos, 500 Rezeptversionen, jeweils bis 20 Material-/Ergebniszeilen. Die portable Anwendungssicherung enthält alle Journal- und Rezeptdaten. Gebühren einer Buchung nutzen dieselbe Originalwährung; andere Umrechnungen müssen nachvollziehbar selbst angegeben werden.
+Grenzen: 5.000 Buchungen inklusive Stornos, 500 Rezeptversionen, bis 20 Material-/Ergebniszeilen. Sicherungen enthalten alle lokalen Daten. Wiederherstellen ersetzt aktive Daten und erstellt zuvor eine zusätzliche Sicherheitssicherung; ältere Schemata benötigen zurückbehaltene passende Programmpakete. Exportierte Sicherungen an einem getrennten Ort aufbewahren.
 
-Vorhandene Marktbereiche, exakte Variantenfilter, lokale Historie, Marktsignale und Watchlists bleiben enthalten. Die offizielle Trade-Suche öffnet die Website; keine In-App-Echtzeitangebote. Watchlist-Zentrale arbeitet bei laufendem Backend; optionale Browser-Desktop-Hinweise benötigen ein geöffnetes Fenster und Browserfreigabe.
+**M6-Gesamtabnahme bleibt offen:** Die automatisierten Nachweise stammen von Windows Server, nicht von einer frischen Windows-11-Umgebung. Vollständige native Fehler-/Neustartmatrix und Stable-Freigabe bleiben offen. Installer im freigegebenen Owner-Modus ohne Authenticode; Updates werden über Ed25519, SHA256, eingebauten Vertrauensanker und HTTPS geprüft.
 
-Installer im freigegebenen Owner-Modus ohne Windows-Authenticode. Updates werden mit eingebautem Vertrauensanker über Ed25519, SHA256 und HTTPS geprüft. Dieses Repository enthält nur Binärdateien und öffentliche Release-Metadaten.
-
-[Nachweis des öffentlichen Updates](https://github.com/Kaikulon-ThePirate/poe-economy-dashboard/actions/runs/44479133924) · [224 Tests je Plattform und vollständige CI](https://github.com/Kaikulon-ThePirate/poe-economy-dashboard/actions/runs/44474481019)
+[Öffentlicher Update-/Restore-Nachweis](https://github.com/Kaikulon-ThePirate/poe-economy-dashboard/actions/runs/44487810014) · [Vollständige CI](https://github.com/Kaikulon-ThePirate/poe-economy-dashboard/actions/runs/44484450205)
