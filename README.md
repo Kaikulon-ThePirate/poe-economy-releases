@@ -1,3 +1,15 @@
+# Test 1.2.0 verfügbar — automatische Preisupdates
+
+Bestehende Anwendung: **Test → Nach Updates suchen →1.2.0 installieren**. Unter **Automatische Preisupdates** aktivieren/pausieren und15–1.440 Minuten speichern (Standard15). [Test-Release und Installer](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/tag/v1.2.0).
+
+Gewählte League/Kategorie, Watchlist und benötigte Currency-Kurse werden automatisch aktualisiert. Browser darf geschlossen sein; die Anwendung muss laufen. Anwendung beenden, Abmelden oder Herunterfahren beendet auch die Preisupdates. Kein Windows-Dienst oder Autostart. Quelle/Cache/Retry-After können den nächsten Abruf verschieben; alte Referenzen bleiben als veraltet gekennzeichnet.
+
+319 Python-Tests je Linux/Windows, zehn Frontend-Tests und vollständige Browser-/native Prüfungen bestanden. Echter Worker aktualisiert Daten ohne Browser (synthetische Quelle/Uhr); öffentlicher 1.1→1.2-Updateweg beweist Backend weiter aktiv nach Browser-Schließen, gespeichertes Intervall nach Neustart und Datenerhalt/Backup-Restore. [Nachweise](https://github.com/Kaikulon-ThePirate/poe-economy-dashboard/tree/main/docs/evidence/auto12). Installer-SHA256 `babb683917ad4471dc926abe9a397918343598daa996300f4b15edcbf1772dab` (54355861Bytes).
+
+Stable bleibt unverändert1.0.0. Private Owner-Verteilung mit signierten Ed25519-Metadaten, Installer weiterhin ohne Authenticode. Kein Live-Listing-Feed oder Handelsbot. Ältere Hinweise darunter gelten für ihre jeweiligen Versionen.
+
+---
+
 # Test 1.1.0 verfügbar — Stable bleibt 1.0.0
 
 Bestehende Anwendung: **Test → Nach Updates suchen → 1.1.0 installieren**. Keine Neuinstallation erforderlich. [Test-Release und Installer](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/tag/v1.1.0).
