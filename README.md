@@ -1,35 +1,37 @@
-# PoE Economy Dashboard – Windows-Testversion 0.8.0
+# PoE Economy Dashboard – Windows-Testversion 0.9.1
 
 ## Bereits installiert: direkt aktualisieren
 
-In der Anwendung **Test → Nach Updates suchen → 0.8.0 installieren**. Sicherung und Neustart erfolgen automatisch. Keine Neuinstallation nötig.
+In der Anwendung **Test → Nach Updates suchen → 0.9.1 installieren**. Sicherung, Migration und Neustart erfolgen automatisch. Keine Neuinstallation nötig.
 
-Neu: **Sicherung und Wiederherstellung** mit vollständiger Einzelprüfung, portablem Export/Import und bestätigtem Restore. Beschädigte Metadaten blockieren die Anwendung nicht mehr. **Diagnosebericht herunterladen** exportiert nur technische Zustandsdaten, keine Buchungen, Notizen, Pfade oder Sitzungskennungen. Erneut über das Startmenü öffnen verwendet das bereits laufende Backend.
+Neu: **Manuelle Angebote**. Eigene Beobachtungen erfassen oder eigene JSON-Dateien importieren. Zuerst Vorschau prüfen, dann ausdrücklich speichern. Identische Beobachtungen und wiederholte Anfragen werden nicht doppelt importiert. Archiv und CSV-Export erhalten Originalpreise, Währung, Umrechnungskurs und Zeitpunkte.
 
-Der echte öffentliche Updateweg **0.7.0 → 0.8.0** wurde mit dem unveränderten Originalinstaller und eingebautem Produktionsanker unter einem Windows-Standardbenutzer geprüft. Vorherige Journalbuchungen, Rezeptversionen, Marktdaten, Einstellungen, Watchlist und Hinweise bleiben erhalten. Zusätzlich: zweiter Shortcut ohne zweiten Backendprozess, Sicherungsprüfung/Export/Import und bestätigter Restore über die Oberfläche; Notizen, Journal und Rezepte anschließend verglichen. DB6/Config2 unverändert.
+Im Markt **Angebot erfassen** übernimmt die Variante als Entwurf; den tatsächlich beobachteten Preis selbst eintragen und die manuelle Zuordnung bestätigen. Referenzabstand nur zu passender frischer Chaosreferenz, bei frischer Beobachtung und gegebenenfalls frischem eigenen Umrechnungskurs. Ansonsten bleibt der Vergleich unbekannt. Kein Deal-Score, ausgeführter Verkauf, Verfügbarkeits- oder Gewinnbeleg; keine automatischen Trade-Abfragen und kein Scraping.
+
+Der echte öffentliche **0.8.0 → 0.9.1**-Updateweg wurde mit dem unveränderten Originalinstaller und Produktionsvertrauensanker unter einem Windows-Standardbenutzer geprüft. Bestehende Journal-/Rezept-/Markt-/Watchlist-/Einstellungsdaten erhalten, neue Angebotsvorschau/Import/Wiederholung geprüft, anschließend portable Sicherung exportiert/importiert und über React bestätigt wiederhergestellt. Die Angebotsdaten blieben erhalten. Migration DB6→DB7, Config2 unverändert.
 
 ## Neuinstallation
 
-[Windows-Installer 0.8.0 herunterladen](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/download/v0.8.0/PoEEconomy-0.8.0-Setup.exe)
+[Windows-Installer 0.9.1 herunterladen](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/download/v0.9.1/PoEEconomy-0.9.1-Setup.exe)
 
-EXE ausführen und PoE Economy Dashboard über das Startmenü öffnen. Installation pro Benutzer; Python oder Node werden nicht benötigt. Für Updates den Testkanal in der Anwendung bestätigen.
+EXE ausführen und PoE Economy Dashboard über das Startmenü öffnen. Installation pro Benutzer; Python oder Node werden nicht benötigt. Für Updates den Testkanal in der Anwendung bestätigen. Erneuter Start öffnet die laufende Anwendung.
 
 Installer-SHA256:
 
 ```text
-475ea095c4390af31ec2a0c94daa955f4502d7db8585561557daaeaea4ad93ed
+a5a210ffe821107432db01b84f6854e21b9d857d5a82aca0354c20a8c6e02bf0
 ```
 
-[Signierte Prüfsummen, SBOMs und Hinweise](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/tag/v0.8.0)
+[Signierte Prüfsummen, SBOMs und Hinweise](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/tag/v0.9.1)
 
-## Enthaltene Funktionen
+## Daten und Grenzen
 
-Markt-Explorer mit poe.ninja-Referenzpreisen, exakten Variantenfiltern, Verlauf und erklärbaren Marktsignalen. Offizielle Trade-Suche öffnet die Website; keine In-App-Echtzeitangebote. Watchlists mit Regeln, lokaler Hinweiszentrale und optionalen Browsermeldungen bei laufender Anwendung.
+JSON-Import: Objekt mit `format: 1` und `records`,1–100 Datensätze, höchstens512KiB. Beispiel und Felder werden im Angebotsbereich angezeigt. Preise/Kurse als Dezimaltext, Zeitpunkte mit Zeitzone. Keine Verkäuferkonten oder Zugangsdaten. Maximal2.000 Beobachtungen inklusive Archiv und500 Importvorgänge, keine automatische Löschung. Die Quelle und Aktualität manueller Angaben kann die App nicht unabhängig bestätigen.
 
-Manuelles Handelsjournal mit Teilverkäufen, FIFO, Gebühren, historischen Umrechnungen, ROI und CSV. Crafting-Kostenplaner mit eigenen Wahrscheinlichkeiten und unveränderten Rezeptversionen. Marktwerte lassen sich als Entwürfe übernehmen; tatsächliche Ausführung und eigene Annahmen vor dem Speichern prüfen. Keine Handelsausführung oder aus Spieldaten abgeleiteten Erfolgsaussichten.
+Weiter enthalten: poe.ninja-Markt-Explorer, Variantenfilter/Verlauf/Marktsignale, offizielle Trade-Suchlinks, Watchlists/Hinweiszentrale, FIFO-Journal und Crafting-Kostenplaner mit eigenen Annahmen. Keine In-App-Echtzeitangebote oder Handelsausführung. Sicherung/Wiederherstellung und technischer Diagnosebericht sind enthalten. Portable Sicherungen enthalten alle lokalen Daten und sollten getrennt aufbewahrt werden. Restore ersetzt aktive Daten nach zusätzlicher Sicherheitssicherung; andere Schemata benötigen ein zurückbehaltenes kompatibles Programmpaket.
 
-Grenzen: 5.000 Buchungen inklusive Stornos, 500 Rezeptversionen, bis 20 Material-/Ergebniszeilen. Sicherungen enthalten alle lokalen Daten. Wiederherstellen ersetzt aktive Daten und erstellt zuvor eine zusätzliche Sicherheitssicherung; ältere Schemata benötigen zurückbehaltene passende Programmpakete. Exportierte Sicherungen an einem getrennten Ort aufbewahren.
+**M6-/Windows-11-Gesamtabnahme und Stable bleiben offen.** Automatisierte native Nachweise stammen von Windows Server; die vollständige frische Windows-11- und Fehler-/Neustartmatrix ist nicht ersetzt. Installer im freigegebenen Owner-Modus ohne Authenticode; Updates werden über Ed25519, SHA256, eingebauten Vertrauensanker und HTTPS geprüft.
 
-**M6-Gesamtabnahme bleibt offen:** Die automatisierten Nachweise stammen von Windows Server, nicht von einer frischen Windows-11-Umgebung. Vollständige native Fehler-/Neustartmatrix und Stable-Freigabe bleiben offen. Installer im freigegebenen Owner-Modus ohne Authenticode; Updates werden über Ed25519, SHA256, eingebauten Vertrauensanker und HTTPS geprüft.
+Die zurückgezogene0.9.0 scheiterte beim öffentlichen Neustarttest. 0.9.1 beseitigt die Konkurrenz zwischen Startüberwachung und neuem Backend; die alte Version wird unverändert als Nachweis aufbewahrt.
 
-[Öffentlicher Update-/Restore-Nachweis](https://github.com/Kaikulon-ThePirate/poe-economy-dashboard/actions/runs/44487810014) · [Vollständige CI](https://github.com/Kaikulon-ThePirate/poe-economy-dashboard/actions/runs/44484450205)
+[Öffentlicher Update-/Neustart-/Restore-Nachweis](https://github.com/Kaikulon-ThePirate/poe-economy-dashboard/actions/runs/44532273251) · [Vollständige CI](https://github.com/Kaikulon-ThePirate/poe-economy-dashboard/actions/runs/44527217746)
