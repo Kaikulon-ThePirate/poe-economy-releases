@@ -1,0 +1,81 @@
+name: Owner private-source Windows release
+on:
+  workflow_dispatch:
+    inputs:
+      source_commit:
+        description: Exact reviewed private source commit
+        required: true
+      source_tree:
+        description: Exact private Git tree verified after decryption
+        required: true
+      bundle_blob:
+        description: AES-GCM encrypted source blob in this repository
+        required: true
+      version:
+        description: New immutable Test version
+        required: true
+        default: '1.4.0'
+      previous_version:
+        description: Actual previous public Test version
+        required: true
+        default: '1.3.0'
+      publication_approval:
+        description: Type publish-test-candidate to authorize Test publication
+        required: true
+permissions:
+  contents: write
+concurrency:
+  group: owner-public-windows-release
+  cancel-in-progress: false
+jobs:
+  release:
+    if: github.ref == 'refs/heads/main' && github.actor == github.repository_owner && github.triggering_actor == github.repository_owner && inputs.publication_approval == 'publish-test-candidate'
+    runs-on: windows-2025
+    timeout-minutes: 60
+    env:
+      SOURCE_COMMIT: ${{ inputs.source_commit }}
+      SOURCE_TREE: ${{ inputs.source_tree }}
+      BUNDLE_BLOB: ${{ inputs.bundle_blob }}
+      VERSION: ${{ inputs.version }}
+      PREVIOUS_VERSION: ${{ inputs.previous_version }}
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Decrypt authenticated source and verify exact Git tree
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PRIVATE_SOURCE_BUNDLE_KEY: ${{ secrets.PRIVATE_SOURCE_BUNDLE_KEY }}
+        run: ./.github/scripts/secure-source.ps1 -Mode open
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.14.10'
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24.22.1'
+      - name: Full private quality and native Windows gates
+        shell: pwsh
+        run: |
+          & pwsh -NoLogo -NoProfile -File "$env:PRIVATE_SOURCE_DIR/scripts/public-owner-build.ps1" -Phase quality -SourceCommit $env:SOURCE_COMMIT -Version $env:VERSION -PreviousVersion $env:PREVIOUS_VERSION *> "$env:RUNNER_TEMP/quality.log"
+          if ($LASTEXITCODE) { throw 'Private quality gate failed. Details are encrypted in the owner build report.' }
+      - name: Build production-signed metadata and prove public N-1 update
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PRODUCTION_TRUST_JSON: ${{ vars.PRODUCTION_TRUST_JSON }}
+          MANIFEST_KEY_ID: ${{ vars.MANIFEST_KEY_ID }}
+          ENCRYPTED_MANIFEST_KEY: ${{ secrets.ENCRYPTED_MANIFEST_KEY }}
+          POE_KEY_PASSWORD: ${{ secrets.MANIFEST_KEY_PASSWORD }}
+        run: |
+          & pwsh -NoLogo -NoProfile -File "$env:PRIVATE_SOURCE_DIR/scripts/public-owner-build.ps1" -Phase publish -SourceCommit $env:SOURCE_COMMIT -Version $env:VERSION -PreviousVersion $env:PREVIOUS_VERSION *> "$env:RUNNER_TEMP/publish.log"
+          if ($LASTEXITCODE) { throw 'Private publication gate failed. Previous Test pointer is retained/restored on native failure.' }
+      - name: Save encrypted logs and source-bound non-source results
+        if: always()
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PRIVATE_SOURCE_BUNDLE_KEY: ${{ secrets.PRIVATE_SOURCE_BUNDLE_KEY }}
+          BUILD_STATUS: ${{ job.status }}
+        run: ./.github/scripts/secure-source.ps1 -Mode report
