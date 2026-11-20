@@ -1,3 +1,15 @@
+# Test 1.3.0 verfügbar — Workspace und Price Trends
+
+Bestehende Anwendung: **Test → Nach Updates suchen →1.3.0 installieren**. Ab1.3 liegen Updates, Preisupdate-Intervalle und Backups unter **Settings**. [Test-Release und Installer](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/tag/v1.3.0).
+
+Neue Navigation: Market, Price Trends, Flip Research, Watchlist, Journal, Crafting und Settings. Charts zeigen gespeicherte Referenzpreise mit Zeitfenstern, Prozentänderung und sichtbaren Datenlücken. Filter und Entwürfe bleiben beim Bereichswechsel erhalten; Reference Currency und League stehen oben. [GUI-Konzept](https://github.com/Kaikulon-ThePirate/poe-economy-dashboard/blob/main/docs/GUI_WORKSPACE.md).
+
+319 Python-Tests je Linux/Windows, zwölf Frontend-Tests und vollständige Browser-/native Prüfungen bestanden. Öffentlicher1.2→1.3-Updateweg einschließlich Datenerhalt, Browser-Schließen, Neustart und bestätigtem Backup-Restore erfolgreich. [Nachweise](https://github.com/Kaikulon-ThePirate/poe-economy-dashboard/tree/main/docs/evidence/gui13). Installer-SHA256 `fb89c4d68b492cf78b51d4d7771e3d65b6202ea2350aae94e6f919bb86c58958` (54360957Bytes).
+
+Stable bleibt1.0.0. Die Historie entsteht aus lokalen Abrufen; automatische geprüfte Flip-Empfehlungen sind noch nicht enthalten. Ältere Hinweise darunter gelten für ihre jeweiligen Versionen.
+
+---
+
 # Test 1.2.0 verfügbar — automatische Preisupdates
 
 Bestehende Anwendung: **Test → Nach Updates suchen →1.2.0 installieren**. Unter **Automatische Preisupdates** aktivieren/pausieren und15–1.440 Minuten speichern (Standard15). [Test-Release und Installer](https://github.com/Kaikulon-ThePirate/poe-economy-releases/releases/tag/v1.2.0).
